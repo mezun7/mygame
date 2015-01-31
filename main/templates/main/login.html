@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Signin please</title>
+
+    <link href="{% static 'main/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'main/css/signin.css' %}" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container">
+
+        {% if next %}
+            <form class="form-signin" action="{% url 'login' %}?next={{ next }}" method="post">
+        {% else %}
+            <form class="form-signin" action="{% url 'login' %}" method="post">
+        {% endif %}
+        <h2 class="form-signin-heading">Войдите в систему!</h2>
+        {% csrf_token %}
+    <label for="Login" class="sr-only">Пользователь</label>
+    {{ form.username }}
+    <label for="Password" class="sr-only">Пароль</label>
+    {{ form.password }}
+        <!-- form.as_p}} -->
+        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Войти">
+</form>
+      <!--<form class="form-signin">
+        <h2 class="form-signin-heading">Войдите в систему!</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+        -->
+    </div>
+  </body>
+</html>

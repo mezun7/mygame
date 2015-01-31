@@ -1,0 +1,42 @@
+{% extends 'main/main.html' %}
+
+{% block mainarea %}
+    <table class="table table-bordered table-responsive table-striped">
+    <tbody>
+    {% for topics_question in topics_questions %}
+                <tr>
+                  <th scope="row">{{ topics_question.topic_name }}</th>
+                    {% for question in topics_question.question_list %}
+
+                        {% if question.team_answered %}
+                            <td class=""><a href="#" class="btn btn-primary btn disabled">{{ question.score }}</a></td>
+                        {% else %}
+                            <td><a href="{% url 'question' question.id %}" class="form-control btn btn-primary btn">{{ question.score }}</a></td>
+                        {% endif %}
+
+                    {% endfor %}
+                </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}
+
+
+{% block sidebarmenu %}
+    <table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Участник</th>
+            <th>Очки</th>
+        </tr>
+    </thead>
+        <tbody class="">
+        {% for team in teams_sorted %}
+            <tr>
+                <td>{{ team.0 }}</td>
+                <td>{{ team.1 }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,25 @@
+<script type="text/javascript">
+$(document).ready(function(){
+
+  $("#my_form").submit(function(){
+    $.post("",
+    {name:"Donald Duck",
+     city:"Duckburg",
+     csrfmiddlewaretoken:'{{ csrf_token }}'
+     },
+    function(data,status){
+      alert("Data: " + data + "\nStatus: " + status);
+    })
+    .fail(function(xhr) {
+        console.log("Error: " + xhr.statusText);
+        alert("Error: " + xhr.statusText);
+    });
+    return false;
+  });
+
+});
+</script>
+
+<form id="my_form" action="" method="post" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>{% csrf_token %}
+<input type="submit" value="Send">
+</form>

@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Своя игра | Встреча выпускников 2015</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'main/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'main/css/offcanvas.css' %}" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'home' %}">Своя игра</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="{% url 'home' %}">Главная</a></li>
+            <li><a href="{% url 'stats' %}">Cтатистика</a></li>
+            <!--<li><a href="#contact">Contact</a></li>-->
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+
+    <div class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-9">
+          <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+          <div class="jumbotron">
+              {% block mainarea %}
+
+                <h1>Hello, world!</h1>
+                <p>This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.</p>
+              {% endblock %}
+          </div>
+
+          <!--/row-->
+        </div><!--/.col-xs-12.col-sm-9-->
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+          <div class="list-group">
+              {% block sidebarmenu %}
+                    <a href="#" class="list-group-item active">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+                    <a href="#" class="list-group-item">Link</a>
+              {% endblock %}
+
+          </div>
+        </div><!--/.sidebar-offcanvas-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>&copy; МАОУ "Лицей-интернат №7"</p>
+      </footer>
+
+    </div><!--/.container-->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'main/js/jquery.min.js' %}"></script>
+    <script src="{% static 'main/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'main/js/offcanvas.js' %}"></script>
+  </body>
+</html>
