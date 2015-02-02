@@ -9,7 +9,7 @@
                     {% for question in topics_question.question_list %}
 
                         {% if question.team_answered %}
-                            <td class=""><a href="#" class="btn btn-primary btn disabled">{{ question.score }}</a></td>
+                            <td class=""><a href="#" class="btn form-control btn-primary btn disabled">{{ question.score }}</a></td>
                         {% else %}
                             <td><a href="{% url 'question' question.id %}" class="form-control btn btn-primary btn">{{ question.score }}</a></td>
                         {% endif %}
